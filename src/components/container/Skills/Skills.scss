@@ -17,11 +17,22 @@
             font-family: "Poppins";
 
             &.active {
-                background: #8c12f0;
+                background: red;
                 color: #fff;
             }
     }
 }
+
+.w-right {
+  position: relative;
+  @media screen and(max-width: 500px) {
+    display: flex;
+    align-items: flex-start;
+    justify-content:flex-start;
+    transform: scale(0.7);
+  }
+}
+
 .skills {
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -96,7 +107,7 @@
   color: #fff;
 
   .number {
-    color: #8c12f0;
+    color: yellow;
     font-size: 1.7rem;
   }
 }

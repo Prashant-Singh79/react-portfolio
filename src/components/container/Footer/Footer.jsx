@@ -15,7 +15,7 @@ const Footer = () => {
       className='footer'
     >
       <div className="copyright">
-        <p>Copyright&copy;2022 All rights reserved.Made by <span>Ye Lin Ko</span></p>
+        <p>Copyright&copy; 2023 All rights reserved.</p>
       </div>
       <div className="followMe">
         <h4>Follow Me</h4>
