@@ -1,30 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./Portfolio.scss";
-import { workNavs } from "../../../Data";
 import { workImages } from "../../../Data";
 import { FiGithub, FiEye } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 const Portfolio = () => {
-  const [tab, setTab] = useState({ name: "all" });
+  // const [tab, setTab] = useState({ name: "all" });
   const [works, setWorks] = useState([]);
-  const [active, setActive] = useState(0);
+  // const [active, setActive] = useState(0);
 
   useEffect(() => {
-    if (tab.name === "all") {
-      setWorks(workImages);
-    } else {
-      const newWork = workImages.filter((workImage) => {
-        return workImage.category.toLowerCase() === tab.name;
-      });
-      setWorks(newWork);
-    }
-  }, [tab]);
+    setWorks(workImages);
+  }, []);
 
-  const activeTab = (e, index) => {
-    setTab({ name: e.target.textContent.toLowerCase() });
-    setActive(index);
-  };
+  // const activeTab = (e, index) => {
+  //   setTab({ name: e.target.textContent.toLowerCase() });
+  //   setActive(index);
+  // };
 
   return (
     <div className="container" id="portfolio">
@@ -34,14 +26,14 @@ const Portfolio = () => {
         className="title"
       >
         <span>My Work</span>
-        <h1>Awesome Projects</h1>
+        <h1>Projects</h1>
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ y: [-50, 0], opacity: 1 }}
         className="buttons"
       >
-        {workNavs.map((workNav, index) => {
+        {/* {workNavs.map((workNav, index) => {
           return (
             <button
               onClick={(e) => activeTab(e, index)}
@@ -51,7 +43,7 @@ const Portfolio = () => {
               {workNav}
             </button>
           );
-        })}
+        })} */}
       </motion.div>
       <motion.div
         initial={{ x: 0, opacity: 0 }}

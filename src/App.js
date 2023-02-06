@@ -11,7 +11,8 @@ import Lottie from "lottie-react";
 import groovyWalkAnimation from "../src/assets/groovyWalk.json";
 import Navbar from "./components/Navbar/Navbar";
 import styles from "./style.module.scss";
-import progress from "../src/assets/progress.json"
+import progress from "../src/assets/progress.json";
+// import Earth from "../src/assets/earth.json"
 
 const Page = ({ offset, gradient, onClick, value }) => (
   <>
@@ -38,19 +39,23 @@ const App = () => {
   useEffect(() => {
     setLength(windowSize.current[0]);
   }, [windowSize]);
-  console.log(windowSize.current[0]);
+
+  console.log("chnagedVaa", windowSize);
 
   const parallax = useRef();
   return (
     <div style={{ background: "#dfdfdf" }}>
-      <Parallax className="container" ref={parallax} pages={5}>
+      <Parallax
+        className="container"
+        ref={parallax}
+        pages={5}
+      >
         <Page offset={0} value={1} gradient="pink" />
         <Page offset={1} value={2} gradient="teal" />
         <Page offset={2} gradient="tomato" />
         <Page offset={3} gradient="pink" />
         <Page offset={4} gradient="teal" />
         <Page offset={5} gradient="pink" />
-
         <ParallaxLayer offset={0} speed={0.9}>
           <Navbar />
           <Home />
@@ -58,27 +63,28 @@ const App = () => {
         <ParallaxLayer
           style={{ display: "flex", justifyContent: "flex-start" }}
           offset={1}
-          sticky={{ start: 0, end: 1 }}
+          // sticky={{ start: 0, end: 1 }}
         >
           <Lottie animationData={groovyWalkAnimation} />
         </ParallaxLayer>
-        <ParallaxLayer offset={1} speed={length <= 500 ? 0.5 : 0.2}>
+        <ParallaxLayer offset={1} speed={length <= 600 ? 0.5 : 0.2}>
           <About />
         </ParallaxLayer>
         <ParallaxLayer
-          offset={length <= 500 ? 1.1 : 2}
-          speed={length <= 500 ? 1 : 2}
+          offset={length <= 600 ? 2 : 2}
+          speed={length <= 600 ? 1.9 : 2}
         >
           <Skills />
         </ParallaxLayer>
         <ParallaxLayer speed={0.2} offset={3}>
           <Portfolio />
         </ParallaxLayer>
-       <ParallaxLayer speed={0.3} offset={4}>
-       <h1 style={{color:'white'}}>Implementing new thing Thanks for visiting</h1>
-       <Lottie animationData={progress} />
-
-       </ParallaxLayer>
+        <ParallaxLayer speed={0.3} offset={length <= 600 ? 4 : 4}>
+          <h1 style={{ color: "white" }}>
+            Implementing new thing Thanks for visiting
+          </h1>
+          <Lottie animationData={progress} />
+        </ParallaxLayer>
       </Parallax>
     </div>
   );
