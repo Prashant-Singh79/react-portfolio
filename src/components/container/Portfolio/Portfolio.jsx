@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Portfolio.scss";
 import { workImages } from "../../../Data";
-import { FiGithub, FiEye } from "react-icons/fi";
+import { FiEye } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 const Portfolio = () => {
@@ -62,17 +62,10 @@ const Portfolio = () => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="hoverLayer"
               >
-                <motion.a
-                  href="#"
-                  whileInView={{ scale: [0, 1] }}
-                  whileHover={{ scale: [1, 1.1] }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <FiGithub />
-                </motion.a>
+                  <h1 className="projectName">{work.name}</h1>
 
                 <motion.a
-                  href="#"
+                 href={work.link}
                   whileInView={{ scale: [0, 1] }}
                   whileHover={{ scale: [1, 1.1] }}
                   transition={{ duration: 0.3 }}
@@ -84,6 +77,8 @@ const Portfolio = () => {
           );
         })}
       </motion.div>
+      <h1 style={{color:"white",textAlign:"center",paddingTop:"30px"}}>3+ more But Working on a Client Project</h1> 
+
     </div>
   );
 };
